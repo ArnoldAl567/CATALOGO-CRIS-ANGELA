@@ -1,0 +1,82 @@
+<dialog #cart class="cart-dialog" aria-labelledby="carrito-titulo" (click)="closeOnBackdrop($event, cart)" (close)="closed.emit()">
+  <div class="cart-head">
+    <div><p class="eyebrow"><span></span> TU SELECCIÓN</p><h2 id="carrito-titulo">Mi carrito</h2></div>
+    <button type="button" class="icon-button" aria-label="Cerrar carrito" (click)="cart.close()" autofocus><svg class="icon"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="cart-body">
+    @if (store.restoring()) { <p class="results" role="status">Recuperando tu selección…</p> }
+    @else if (store.restoreError()) { <div class="empty" role="alert"><p>No pudimos recuperar tu carrito.</p><button class="button secondary" (click)="store.restore()">Volver a intentar</button></div> }
+    @else {
+    @for (line of store.lines(); track line.id + ':' + line.choices.join('|')) {
+      <article class="cart-line">
+        <div [class]="'cart-thumb ' + line.theme"><img [src]="line.product.fotos[0]" alt=""></div>
+        <div>
+          <h3>{{ line.product.nombre }}</h3>
+          @if (line.variant) { <p>{{ line.variant }}</p> }
+          <p>{{ price(line.product.precio) }} por unidad</p>
+          <div class="stepper" [attr.aria-label]="'Cantidad de ' + line.product.nombre">
+            <button type="button" (click)="store.change(line, -1)" [disabled]="line.quantity === 1" [attr.aria-label]="'Restar una unidad de ' + line.product.nombre"><svg class="icon"><use href="#i-minus"/></svg></button>
+            <span>{{ line.quantity }}</span>
+            <button type="button" (click)="store.change(line, 1)" [disabled]="line.quantity === maxQuantity" [attr.aria-label]="'Sumar una unidad de ' + line.product.nombre"><svg class="icon"><use href="#i-plus"/></svg></button>
+          </div>
+        </div>
+        <div class="line-total">
+          <strong>{{ price(line.subtotal) }}</strong>
+          <button type="button" (click)="store.remove(line)" [attr.aria-label]="'Eliminar ' + line.product.nombre"><svg class="icon"><use href="#i-trash"/></svg></button>
+        </div>
+      </article>
+    } @empty {
+      <div class="empty">
+        <svg class="icon"><use href="#i-bag"/></svg>
+        <h3>Tu carrito está vacío</h3><p>Elige tus favoritos y agrégalos aquí.</p>
+        <button type="button" class="button secondary" (click)="cart.close(); explore.emit()">Explorar productos <svg class="icon"><use href="#i-arrow"/></svg></button>
+      </div>
+    }
+    }
+  </div>
+  @if (store.count() && !store.restoring() && !store.restoreError()) {
+    <div class="cart-footer">
+      <div class="subtotal"><span>Subtotal de productos</span><strong>{{ price(store.total()) }}</strong></div>
+      <div class="total"><span>Total del pedido</span><strong>{{ price(store.total()) }}</strong></div>
+      <button type="button" class="button primary" (click)="clearQuote(); order.showModal()">Revisar pedido <svg class="icon"><use href="#i-arrow"/></svg></button>
+    </div>
+  }
+</dialog>
+
+<dialog #order class="order-dialog" aria-labelledby="pedido-titulo" (click)="closeOnBackdrop($event, order)" (close)="cancelQuote()">
+  <div class="cart-head">
+    <div><p class="eyebrow"><span></span> ÚLTIMO PASO</p><h2 id="pedido-titulo">Revisa tu pedido</h2></div>
+    <button type="button" class="icon-button" aria-label="Cerrar resumen" (click)="order.close()"><svg class="icon"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="order-content">
+    <ul>
+      @for (line of store.lines(); track line.id + ':' + line.choices.join('|')) {
+        <li>
+          <span>{{ line.quantity }} × {{ line.product.nombre }}
+            <small>{{ line.variant ? line.variant + ' · ' : '' }}{{ price(line.product.precio) }} c/u</small>
+          </span>
+          <strong>{{ price(line.subtotal) }}</strong>
+        </li>
+      }
+    </ul>
+    <div class="subtotal"><span>Subtotal de productos</span><strong>{{ price(store.total()) }}</strong></div>
+    <div class="total"><span>Total del pedido</span><strong>{{ price(store.total()) }}</strong></div>
+    <form (submit)="submit($event)" (input)="clearQuote()">
+      <label for="cliente">Tu nombre</label>
+      <input id="cliente" name="cliente" autocomplete="name" maxlength="80" required placeholder="Nombre y apellido" [readOnly]="pending()">
+      <label for="notas">Notas del pedido <span>(opcional)</span></label>
+      <textarea id="notas" name="notas" maxlength="450" rows="3" placeholder="Indica cualquier detalle que quieras coordinar." [readOnly]="pending()"></textarea>
+      <p class="order-note">Tu mensaje se abrirá en WhatsApp para que lo revises y lo envíes a la tienda.</p>
+      @if (error()) { <p class="order-error" role="alert">{{ error() }}</p> }
+      @if (revisedQuote(); as revision) {
+        <p class="order-error" role="status">Los precios cambiaron. El total actualizado es {{ price(revision.quote.total) }}.</p>
+        <a class="button primary" [href]="revision.quote.whatsapp" (click)="confirmRevisedQuote($event)">Aceptar total y abrir WhatsApp</a>
+      } @else {
+        <button type="submit" class="button primary" [disabled]="pending() || !store.count()">
+          <svg class="icon"><use href="#i-whatsapp"/></svg> {{ pending() ? 'Preparando pedido…' : 'Abrir pedido en WhatsApp' }}
+        </button>
+      }
+      <button type="button" class="quiet-button" (click)="order.close()">Volver al carrito</button>
+    </form>
+  </div>
+</dialog>

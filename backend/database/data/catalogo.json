@@ -1,0 +1,1108 @@
+{
+  "categorias": [
+    {
+      "id": "audifonos",
+      "nombre": "Audífonos",
+      "letra": "a",
+      "foto": "a07",
+      "tema": "lila",
+      "texto": "Tu música, a tu ritmo"
+    },
+    {
+      "id": "contenedores",
+      "nombre": "Contenedores",
+      "letra": "c",
+      "foto": "c09",
+      "tema": "menta",
+      "texto": "Para llevar contigo"
+    },
+    {
+      "id": "relojes",
+      "nombre": "Relojes",
+      "letra": "r",
+      "foto": "r08",
+      "tema": "azul",
+      "texto": "Cada momento cuenta"
+    },
+    {
+      "id": "joyas",
+      "nombre": "Joyas",
+      "letra": "j",
+      "foto": "j02",
+      "tema": "arena",
+      "texto": "Detalles que brillan"
+    },
+    {
+      "id": "peluches",
+      "nombre": "Peluches",
+      "letra": "p",
+      "foto": "p02",
+      "tema": "rosa",
+      "texto": "Regalos para abrazar"
+    }
+  ],
+  "productos": [
+    {
+      "id": "a01",
+      "categoria": "audifonos",
+      "nombre": "Ultrapods Pro",
+      "precio": 1800,
+      "caracteristicas": [
+        "Cancelación de ruido",
+        "Control táctil",
+        "Pantalla digital",
+        "IPX4 (antisalpicaduras)",
+        "Bluetooth 5.3",
+        "Alcance de 15 metros"
+      ],
+      "opciones": [],
+      "porUnidad": false,
+      "descripcion": "Cancelación de ruido · Control táctil",
+      "fotos": [
+        "assets/a01.webp"
+      ]
+    },
+    {
+      "id": "a02",
+      "categoria": "audifonos",
+      "nombre": "Audífonos M10",
+      "precio": 2500,
+      "caracteristicas": [
+        "Pantalla digital",
+        "Diseño ergonómico",
+        "Cancelación de ruido",
+        "IPX7 (antisalpicaduras)",
+        "Incluye power bank",
+        "Bluetooth 5.1",
+        "Alcance de 10 metros"
+      ],
+      "opciones": [],
+      "porUnidad": false,
+      "descripcion": "Pantalla digital · Diseño ergonómico",
+      "fotos": [
+        "assets/a02.webp"
+      ]
+    },
+    {
+      "id": "a03",
+      "categoria": "audifonos",
+      "nombre": "Audífonos TWS F9-5",
+      "precio": 2500,
+      "caracteristicas": [
+        "Pantalla digital",
+        "Controles táctiles",
+        "Cancelación de ruido",
+        "IPX5 (antisalpicaduras)",
+        "Incluye power bank",
+        "Bluetooth 5.3",
+        "Alcance de 10 metros"
+      ],
+      "opciones": [],
+      "porUnidad": false,
+      "descripcion": "Pantalla digital · Controles táctiles",
+      "fotos": [
+        "assets/a03.webp"
+      ]
+    },
+    {
+      "id": "a04",
+      "categoria": "audifonos",
+      "nombre": "Audífonos E7S",
+      "precio": 2500,
+      "caracteristicas": [
+        "Pantalla digital",
+        "Micrófono incorporado",
+        "Cancelación de ruido",
+        "IPX5 (antisalpicaduras)",
+        "Sensor táctil",
+        "Bluetooth 5.0",
+        "Alcance de 10 metros"
+      ],
+      "opciones": [],
+      "porUnidad": false,
+      "descripcion": "Pantalla digital · Micrófono incorporado",
+      "fotos": [
+        "assets/a04.webp"
+      ]
+    },
+    {
+      "id": "a05",
+      "categoria": "audifonos",
+      "nombre": "Audífonos M25",
+      "precio": 2800,
+      "caracteristicas": [
+        "Pantalla digital",
+        "Diseño ergonómico",
+        "Cancelación de ruido",
+        "IPX4 (antisalpicaduras)",
+        "Control táctil",
+        "Bluetooth 5.3",
+        "Alcance de 15 metros"
+      ],
+      "opciones": [],
+      "porUnidad": false,
+      "descripcion": "Pantalla digital · Diseño ergonómico",
+      "fotos": [
+        "assets/a05.webp"
+      ]
+    },
+    {
+      "id": "a06",
+      "categoria": "audifonos",
+      "nombre": "Audífonos ST02",
+      "precio": 2800,
+      "caracteristicas": [
+        "Pantalla digital",
+        "Diseño ergonómico",
+        "Duración de 4 a 5 horas",
+        "Control táctil",
+        "Bluetooth 5.0",
+        "Alcance de 10 metros"
+      ],
+      "opciones": [],
+      "porUnidad": false,
+      "descripcion": "Pantalla digital · Diseño ergonómico",
+      "fotos": [
+        "assets/a06.webp"
+      ]
+    },
+    {
+      "id": "a07",
+      "categoria": "audifonos",
+      "nombre": "Ear Cat Fashion",
+      "precio": 2000,
+      "caracteristicas": [
+        "Iluminación LED",
+        "Diseño con orejas de gato",
+        "Cómodos y prácticos",
+        "Micrófono integrado",
+        "Bluetooth 5.0",
+        "Alcance de 10 metros"
+      ],
+      "opciones": [],
+      "porUnidad": false,
+      "descripcion": "Iluminación LED · Diseño con orejas de gato",
+      "fotos": [
+        "assets/a07.webp"
+      ]
+    },
+    {
+      "id": "a08",
+      "categoria": "audifonos",
+      "nombre": "Audífonos Cat Ears",
+      "precio": 2000,
+      "caracteristicas": [
+        "Iluminación LED",
+        "Botones prácticos",
+        "Cómodos y prácticos",
+        "Bluetooth 5.0",
+        "Alcance de 10 metros"
+      ],
+      "opciones": [],
+      "porUnidad": false,
+      "descripcion": "Iluminación LED · Botones prácticos",
+      "fotos": [
+        "assets/a08.webp"
+      ]
+    },
+    {
+      "id": "a09",
+      "categoria": "audifonos",
+      "nombre": "Audífonos P47",
+      "precio": 1800,
+      "caracteristicas": [
+        "Botones prácticos",
+        "Entrada SD",
+        "Almohadillas cómodas",
+        "Fáciles de transportar",
+        "Entrada de 3.5 mm",
+        "Bluetooth 4.1",
+        "Alcance de 10 metros"
+      ],
+      "opciones": [],
+      "porUnidad": false,
+      "descripcion": "Botones prácticos · Entrada SD",
+      "fotos": [
+        "assets/a09.webp"
+      ]
+    },
+    {
+      "id": "a10",
+      "categoria": "audifonos",
+      "nombre": "Audífonos Ubon",
+      "precio": 1800,
+      "caracteristicas": [
+        "Sonido superior",
+        "8 horas de reproducción",
+        "Botones prácticos",
+        "Almohadillas cómodas",
+        "Entrada de 3.5 mm",
+        "Bluetooth 5.0",
+        "Alcance de 10 metros"
+      ],
+      "opciones": [],
+      "porUnidad": false,
+      "descripcion": "Sonido superior · 8 horas de reproducción",
+      "fotos": [
+        "assets/a10.webp"
+      ]
+    },
+    {
+      "id": "c01",
+      "categoria": "contenedores",
+      "nombre": "Tomatodo Oso XOX",
+      "precio": 1600,
+      "caracteristicas": [
+        "700 ml",
+        "18 × 9 cm",
+        "Incluye correa",
+        "Doble boca",
+        "Policarbonato"
+      ],
+      "opciones": [],
+      "porUnidad": false,
+      "descripcion": "700 ml · 18 × 9 cm",
+      "fotos": [
+        "assets/c01.webp"
+      ]
+    },
+    {
+      "id": "c02",
+      "categoria": "contenedores",
+      "nombre": "Tomatodo Dudu",
+      "precio": 1500,
+      "caracteristicas": [
+        "1400 ml",
+        "19 × 13 cm",
+        "Incluye correa",
+        "Stickers decorativos",
+        "Policarbonato"
+      ],
+      "opciones": [],
+      "porUnidad": false,
+      "descripcion": "1400 ml · 19 × 13 cm",
+      "fotos": [
+        "assets/c02.webp"
+      ]
+    },
+    {
+      "id": "c03",
+      "categoria": "contenedores",
+      "nombre": "Tomatodo Shuiyinzi",
+      "precio": 1500,
+      "caracteristicas": [
+        "900 ml",
+        "25.5 × 7.5 cm",
+        "Pajita incluida",
+        "Stickers decorativos",
+        "Polipropileno y policarbonato"
+      ],
+      "opciones": [],
+      "porUnidad": false,
+      "descripcion": "900 ml · 25.5 × 7.5 cm",
+      "fotos": [
+        "assets/c03.webp"
+      ]
+    },
+    {
+      "id": "c04",
+      "categoria": "contenedores",
+      "nombre": "Tomatodo Cute Baby",
+      "precio": 1500,
+      "caracteristicas": [
+        "700 ml",
+        "17.4 × 9.4 cm",
+        "Boquilla de silicona",
+        "Incluye correa",
+        "Polipropileno"
+      ],
+      "opciones": [
+        {
+          "nombre": "Color",
+          "valores": [
+            "Celeste y lila",
+            "Rosa y turquesa"
+          ]
+        }
+      ],
+      "porUnidad": true,
+      "descripcion": "700 ml · 17.4 × 9.4 cm",
+      "fotos": [
+        "assets/c04.webp"
+      ]
+    },
+    {
+      "id": "c05",
+      "categoria": "contenedores",
+      "nombre": "Tomatodo Dibujo",
+      "precio": 900,
+      "caracteristicas": [
+        "600 ml",
+        "26 × 7 cm",
+        "Diseño con dibujos",
+        "Tapa vaso",
+        "Plástico"
+      ],
+      "opciones": [],
+      "porUnidad": true,
+      "descripcion": "600 ml · 26 × 7 cm",
+      "fotos": [
+        "assets/c05.webp"
+      ]
+    },
+    {
+      "id": "c06",
+      "categoria": "contenedores",
+      "nombre": "Tomatodo Diario",
+      "precio": 1300,
+      "caracteristicas": [
+        "1.5 o 2 litros",
+        "10.5 × 29 cm",
+        "Cañita incluida",
+        "Práctico de llevar",
+        "Policarbonato y plástico"
+      ],
+      "opciones": [
+        {
+          "nombre": "Capacidad",
+          "valores": [
+            "1.5 litros",
+            "2 litros"
+          ]
+        },
+        {
+          "nombre": "Color",
+          "valores": [
+            "Celeste y naranja",
+            "Turquesa y lila",
+            "Lila y transparente",
+            "Amarillo y rosa",
+            "Rosa y turquesa"
+          ]
+        }
+      ],
+      "porUnidad": true,
+      "descripcion": "1.5 o 2 litros · 10.5 × 29 cm",
+      "fotos": [
+        "assets/c06.webp"
+      ]
+    },
+    {
+      "id": "c07",
+      "categoria": "contenedores",
+      "nombre": "Tomatodo Trio",
+      "precio": 1800,
+      "caracteristicas": [
+        "Set de 2 litros, 900 ml y 300 ml",
+        "Para bebidas calientes y frías",
+        "Tapas seguras",
+        "Policarbonato y polipropileno"
+      ],
+      "opciones": [
+        {
+          "nombre": "Color",
+          "valores": [
+            "Azul, amarillo y fucsia",
+            "Verde, amarillo y rosa",
+            "Azul y turquesa",
+            "Lila"
+          ]
+        }
+      ],
+      "porUnidad": false,
+      "descripcion": "Set de 2 litros, 900 ml y 300 ml · Para bebidas calientes y frías",
+      "fotos": [
+        "assets/c07.webp"
+      ]
+    },
+    {
+      "id": "c08",
+      "categoria": "contenedores",
+      "nombre": "Tomatodo Rabbit",
+      "precio": 900,
+      "caracteristicas": [
+        "600 ml",
+        "9 × 14 cm",
+        "Incluye correa",
+        "Apertura fácil",
+        "Policarbonato"
+      ],
+      "opciones": [
+        {
+          "nombre": "Color",
+          "valores": [
+            "Rojo",
+            "Rosa y lila"
+          ]
+        }
+      ],
+      "porUnidad": true,
+      "descripcion": "600 ml · 9 × 14 cm",
+      "fotos": [
+        "assets/c08.webp"
+      ]
+    },
+    {
+      "id": "c09",
+      "categoria": "contenedores",
+      "nombre": "Tomatodo Keep Going",
+      "precio": 990,
+      "caracteristicas": [
+        "800 ml",
+        "8 × 23 cm",
+        "Sistema de agarre",
+        "Tapa con botón",
+        "Plástico"
+      ],
+      "opciones": [
+        {
+          "nombre": "Color",
+          "valores": [
+            "Naranja y turquesa",
+            "Negro",
+            "Azul y naranja",
+            "Lila y amarillo"
+          ]
+        }
+      ],
+      "porUnidad": true,
+      "descripcion": "800 ml · 8 × 23 cm",
+      "fotos": [
+        "assets/c09.webp"
+      ]
+    },
+    {
+      "id": "c10",
+      "categoria": "contenedores",
+      "nombre": "Tomatodo Kids",
+      "precio": 900,
+      "caracteristicas": [
+        "650 ml",
+        "21 × 7 cm",
+        "Incluye correa",
+        "Diseño para niños",
+        "Plástico"
+      ],
+      "opciones": [
+        {
+          "nombre": "Color",
+          "valores": [
+            "Amarillo",
+            "Rojo",
+            "Celeste"
+          ]
+        }
+      ],
+      "porUnidad": true,
+      "descripcion": "650 ml · 21 × 7 cm",
+      "fotos": [
+        "assets/c10.webp"
+      ]
+    },
+    {
+      "id": "r01",
+      "categoria": "relojes",
+      "nombre": "Reloj Fit",
+      "precio": 800,
+      "caracteristicas": [
+        "Pantalla digital",
+        "Contador de pasos",
+        "Opciones con muñequito"
+      ],
+      "opciones": [
+        {
+          "nombre": "Variante",
+          "valores": [
+            "Naranja",
+            "Azul",
+            "Blanco",
+            "Rojo",
+            "Celeste",
+            "Negro",
+            "Turquesa",
+            "Rosa",
+            "Blanco con muñequito",
+            "Celeste con muñequito",
+            "Azul con muñequito",
+            "Negro con muñequito",
+            "Rojo con muñequito",
+            "Rosa con muñequito"
+          ]
+        }
+      ],
+      "porUnidad": true,
+      "descripcion": "Pantalla digital · Contador de pasos",
+      "fotos": [
+        "assets/r01.webp"
+      ]
+    },
+    {
+      "id": "r02",
+      "categoria": "relojes",
+      "nombre": "R. Trébol",
+      "precio": 1300,
+      "caracteristicas": [
+        "Diseño elegante",
+        "Detalle de trébol"
+      ],
+      "opciones": [
+        {
+          "nombre": "Color",
+          "valores": [
+            "Rojo",
+            "Rosa"
+          ]
+        }
+      ],
+      "porUnidad": true,
+      "descripcion": "Diseño elegante · Detalle de trébol",
+      "fotos": [
+        "assets/r02.webp",
+        "assets/r02-1.webp"
+      ]
+    },
+    {
+      "id": "r03",
+      "categoria": "relojes",
+      "nombre": "R. Mariposa",
+      "precio": 1300,
+      "caracteristicas": [
+        "Diseño elegante",
+        "Detalle de mariposa"
+      ],
+      "opciones": [
+        {
+          "nombre": "Color",
+          "valores": [
+            "Rojo",
+            "Rosa"
+          ]
+        }
+      ],
+      "porUnidad": true,
+      "descripcion": "Diseño elegante · Detalle de mariposa",
+      "fotos": [
+        "assets/r03.webp",
+        "assets/r03-1.webp"
+      ]
+    },
+    {
+      "id": "r04",
+      "categoria": "relojes",
+      "nombre": "R. Montañero",
+      "precio": 1400,
+      "caracteristicas": [
+        "Pantalla digital",
+        "Diseño robusto"
+      ],
+      "opciones": [
+        {
+          "nombre": "Color",
+          "valores": [
+            "Azul",
+            "Rosa",
+            "Blanco"
+          ]
+        }
+      ],
+      "porUnidad": true,
+      "descripcion": "Pantalla digital · Diseño robusto",
+      "fotos": [
+        "assets/r04.webp",
+        "assets/r04-1.webp"
+      ]
+    },
+    {
+      "id": "r05",
+      "categoria": "relojes",
+      "nombre": "R. Cuadrado",
+      "precio": 1300,
+      "caracteristicas": [
+        "Pantalla digital",
+        "Diseño ligero"
+      ],
+      "opciones": [
+        {
+          "nombre": "Color",
+          "valores": [
+            "Azul oscuro",
+            "Beige",
+            "Celeste"
+          ]
+        }
+      ],
+      "porUnidad": true,
+      "descripcion": "Pantalla digital · Diseño ligero",
+      "fotos": [
+        "assets/r05.webp",
+        "assets/r05-1.webp"
+      ]
+    },
+    {
+      "id": "r06",
+      "categoria": "relojes",
+      "nombre": "R. Magnético",
+      "precio": 1300,
+      "caracteristicas": [
+        "Enganche fácil",
+        "Colores elegantes"
+      ],
+      "opciones": [
+        {
+          "nombre": "Color",
+          "valores": [
+            "Morado y dorado",
+            "Negro y dorado"
+          ]
+        }
+      ],
+      "porUnidad": true,
+      "descripcion": "Enganche fácil · Colores elegantes",
+      "fotos": [
+        "assets/r06.webp",
+        "assets/r06-1.webp"
+      ]
+    },
+    {
+      "id": "r07",
+      "categoria": "relojes",
+      "nombre": "R. Corazón",
+      "precio": 1800,
+      "caracteristicas": [
+        "Correa de cuerina",
+        "Diseño de corazón"
+      ],
+      "opciones": [
+        {
+          "nombre": "Color",
+          "valores": [
+            "Negro"
+          ]
+        }
+      ],
+      "porUnidad": false,
+      "descripcion": "Correa de cuerina · Diseño de corazón",
+      "fotos": [
+        "assets/r07.webp"
+      ]
+    },
+    {
+      "id": "r08",
+      "categoria": "relojes",
+      "nombre": "R. Fashion",
+      "precio": 1200,
+      "caracteristicas": [
+        "Reloj analógico",
+        "Incluye cuatro pulseras",
+        "Diseño juvenil"
+      ],
+      "opciones": [],
+      "porUnidad": false,
+      "descripcion": "Reloj analógico · Incluye cuatro pulseras",
+      "fotos": [
+        "assets/r08.webp"
+      ]
+    },
+    {
+      "id": "r09",
+      "categoria": "relojes",
+      "nombre": "R. Plumaje",
+      "precio": 1500,
+      "caracteristicas": [
+        "Con plumas",
+        "Diseño veraniego"
+      ],
+      "opciones": [
+        {
+          "nombre": "Color",
+          "valores": [
+            "Rojo",
+            "Azul"
+          ]
+        }
+      ],
+      "porUnidad": false,
+      "descripcion": "Con plumas · Diseño veraniego",
+      "fotos": [
+        "assets/r09.webp"
+      ]
+    },
+    {
+      "id": "r10",
+      "categoria": "relojes",
+      "nombre": "R. Tigre",
+      "precio": 1200,
+      "caracteristicas": [
+        "Reloj analógico",
+        "Incluye pulseras y cadena",
+        "Diseño audaz"
+      ],
+      "opciones": [],
+      "porUnidad": false,
+      "descripcion": "Reloj analógico · Incluye pulseras y cadena",
+      "fotos": [
+        "assets/r10.webp"
+      ]
+    },
+    {
+      "id": "j01",
+      "categoria": "joyas",
+      "nombre": "Trio “I Love You”",
+      "precio": 1200,
+      "caracteristicas": [
+        "Aretes, sortija y collar",
+        "Dije “I Love You”"
+      ],
+      "opciones": [],
+      "porUnidad": false,
+      "descripcion": "Trío de joyas con dije “I Love You”, aretes y sortija.",
+      "fotos": [
+        "assets/j01.webp"
+      ]
+    },
+    {
+      "id": "j02",
+      "categoria": "joyas",
+      "nombre": "Cuatri Joyas",
+      "precio": 1500,
+      "caracteristicas": [
+        "Aretes, collar, anillo y brazalete"
+      ],
+      "opciones": [],
+      "porUnidad": false,
+      "descripcion": "Cuarteto de joyas con aretes, collar, anillo y brazalete.",
+      "fotos": [
+        "assets/j02.webp"
+      ]
+    },
+    {
+      "id": "j03",
+      "categoria": "joyas",
+      "nombre": "Par Corazón",
+      "precio": 1200,
+      "caracteristicas": [
+        "Dije divisible en dos"
+      ],
+      "opciones": [],
+      "porUnidad": false,
+      "descripcion": "Dije de corazón divisible en dos para compartir.",
+      "fotos": [
+        "assets/j03.webp"
+      ]
+    },
+    {
+      "id": "j04",
+      "categoria": "joyas",
+      "nombre": "Trio Mariposa",
+      "precio": 1200,
+      "caracteristicas": [
+        "Aretes, collar de mariposa y anillo"
+      ],
+      "opciones": [],
+      "porUnidad": false,
+      "descripcion": "Aretes, collar de mariposa y anillo",
+      "fotos": [
+        "assets/j04.webp"
+      ]
+    },
+    {
+      "id": "j05",
+      "categoria": "joyas",
+      "nombre": "Dúo Joyas",
+      "precio": 2500,
+      "caracteristicas": [
+        "Collar y aretes con forma de cola real"
+      ],
+      "opciones": [],
+      "porUnidad": false,
+      "descripcion": "Collar y aretes con forma de cola real",
+      "fotos": [
+        "assets/j05.webp"
+      ]
+    },
+    {
+      "id": "j06",
+      "categoria": "joyas",
+      "nombre": "Dúo Estrella",
+      "precio": 5000,
+      "caracteristicas": [
+        "Aretes y collar con motivo de estrella"
+      ],
+      "opciones": [],
+      "porUnidad": false,
+      "descripcion": "Aretes y collar con motivo de estrella",
+      "fotos": [
+        "assets/j06.webp"
+      ]
+    },
+    {
+      "id": "j07",
+      "categoria": "joyas",
+      "nombre": "Dije Letra",
+      "precio": 1500,
+      "caracteristicas": [
+        "Dije de inicial",
+        "Incluye cadena"
+      ],
+      "opciones": [
+        {
+          "nombre": "Letra",
+          "valores": [
+            "B",
+            "I",
+            "D",
+            "H",
+            "X",
+            "T",
+            "S",
+            "A",
+            "Y",
+            "P",
+            "R",
+            "L",
+            "O",
+            "V",
+            "F",
+            "N",
+            "G",
+            "M",
+            "U",
+            "E"
+          ]
+        }
+      ],
+      "porUnidad": true,
+      "descripcion": "Lleva tu inicial o la de alguien especial. Cada dije incluye cadena.",
+      "fotos": [
+        "assets/j07.webp"
+      ]
+    },
+    {
+      "id": "j08",
+      "categoria": "joyas",
+      "nombre": "Dúo Corazón",
+      "precio": 1500,
+      "caracteristicas": [
+        "Aretes de estrella",
+        "Collar de corazón"
+      ],
+      "opciones": [],
+      "porUnidad": false,
+      "descripcion": "Aretes de estrella · Collar de corazón",
+      "fotos": [
+        "assets/j08.webp"
+      ]
+    },
+    {
+      "id": "j09",
+      "categoria": "joyas",
+      "nombre": "Collar Gotita",
+      "precio": 1200,
+      "caracteristicas": [
+        "Collar con joya brillante"
+      ],
+      "opciones": [],
+      "porUnidad": false,
+      "descripcion": "Collar con joya brillante",
+      "fotos": [
+        "assets/j09.webp"
+      ]
+    },
+    {
+      "id": "j10",
+      "categoria": "joyas",
+      "nombre": "Trébol Spin",
+      "precio": 2000,
+      "caracteristicas": [
+        "Collar de trébol",
+        "Trébol giratorio"
+      ],
+      "opciones": [],
+      "porUnidad": false,
+      "descripcion": "Collar de trébol · Trébol giratorio",
+      "fotos": [
+        "assets/j10.webp"
+      ]
+    },
+    {
+      "id": "p01",
+      "categoria": "peluches",
+      "nombre": "Peluches Corazón",
+      "precio": 1800,
+      "caracteristicas": [
+        "Corazón decorativo",
+        "Caja de sonido con música romántica"
+      ],
+      "opciones": [
+        {
+          "nombre": "Modelo",
+          "valores": [
+            "Oso",
+            "Perro"
+          ]
+        }
+      ],
+      "porUnidad": true,
+      "descripcion": "Peluches suaves con un corazón y caja de sonido con música romántica.",
+      "fotos": [
+        "assets/p01.webp",
+        "assets/p01-1.webp",
+        "assets/p01-2.webp",
+        "assets/p01-3.webp",
+        "assets/p01-4.webp",
+        "assets/p01-5.webp"
+      ]
+    },
+    {
+      "id": "p02",
+      "categoria": "peluches",
+      "nombre": "Peluches Flor",
+      "precio": 2000,
+      "caracteristicas": [
+        "Flor pequeña",
+        "Caja de sonido con música romántica"
+      ],
+      "opciones": [
+        {
+          "nombre": "Modelo",
+          "valores": [
+            "Oso",
+            "Perro"
+          ]
+        }
+      ],
+      "porUnidad": true,
+      "descripcion": "Peluches suaves con una flor pequeña y caja de sonido con música romántica.",
+      "fotos": [
+        "assets/p02.webp",
+        "assets/p02-1.webp",
+        "assets/p02-2.webp"
+      ]
+    },
+    {
+      "id": "p03",
+      "categoria": "peluches",
+      "nombre": "Peluches Clásicos",
+      "precio": 2000,
+      "caracteristicas": [
+        "Caja de sonido con música romántica",
+        "Ropa o moño rojo según el modelo"
+      ],
+      "opciones": [
+        {
+          "nombre": "Modelo",
+          "valores": [
+            "Oso",
+            "León"
+          ]
+        }
+      ],
+      "porUnidad": true,
+      "descripcion": "Peluches suaves con música romántica y ropa o moño rojo, según el modelo.",
+      "fotos": [
+        "assets/p03.webp",
+        "assets/p03-1.webp",
+        "assets/p03-2.webp"
+      ]
+    },
+    {
+      "id": "p04",
+      "categoria": "peluches",
+      "nombre": "P. Colgantes",
+      "precio": 1200,
+      "caracteristicas": [
+        "Corazón en la base y en las manos"
+      ],
+      "opciones": [
+        {
+          "nombre": "Modelo",
+          "valores": [
+            "Perro",
+            "León",
+            "Pato"
+          ]
+        }
+      ],
+      "porUnidad": true,
+      "descripcion": "Muñecos colgantes pequeños con un corazón en la base y otro en las manos.",
+      "fotos": [
+        "assets/p04.webp"
+      ]
+    },
+    {
+      "id": "p05",
+      "categoria": "peluches",
+      "nombre": "Michis Disfrazados",
+      "precio": 1200,
+      "caracteristicas": [
+        "Peluche llavero",
+        "Gatitos disfrazados"
+      ],
+      "opciones": [
+        {
+          "nombre": "Modelo",
+          "valores": [
+            "Kuromi",
+            "Stitch"
+          ]
+        }
+      ],
+      "porUnidad": true,
+      "descripcion": "Llaveros de gatitos disfrazados de Kuromi o Stitch para decorar tu mochila.",
+      "fotos": [
+        "assets/p05.webp"
+      ]
+    },
+    {
+      "id": "p06",
+      "categoria": "peluches",
+      "nombre": "Peluche Lucifer",
+      "precio": 1200,
+      "caracteristicas": [
+        "Peluche llavero",
+        "Lucifer, el gato de La Cenicienta"
+      ],
+      "opciones": [
+        {
+          "nombre": "Modelo",
+          "valores": [
+            "Lucifer el gato"
+          ]
+        }
+      ],
+      "porUnidad": true,
+      "descripcion": "El gato Lucifer de La Cenicienta en un llavero suave para tu mochila o maleta.",
+      "fotos": [
+        "assets/p06.webp"
+      ]
+    },
+    {
+      "id": "p07",
+      "categoria": "peluches",
+      "nombre": "Peluches Capybaras",
+      "precio": 1200,
+      "caracteristicas": [
+        "Peluche llavero",
+        "Textura suave"
+      ],
+      "opciones": [
+        {
+          "nombre": "Modelo",
+          "valores": [
+            "Capybaras Veraniegos",
+            "Capybara mochilero",
+            "Lady capybara"
+          ]
+        }
+      ],
+      "porUnidad": true,
+      "descripcion": "Llaveros de capybaras con estilo veraniego y textura suave.",
+      "fotos": [
+        "assets/p07.webp",
+        "assets/p07-1.webp",
+        "assets/p07-2.webp",
+        "assets/p07-3.webp"
+      ]
+    }
+  ]
+}

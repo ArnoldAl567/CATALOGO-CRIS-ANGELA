@@ -1,0 +1,92 @@
+    <section class="hero" aria-labelledby="hero-titulo">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> OBJETOS QUE ALEGRAN TU DÍA</p>
+        <h1 id="hero-titulo">Lo cotidiano,<br>un poco más<br><em>extraordinario.</em></h1>
+        <p class="hero-description">Un detalle para ti. Un regalo para alguien especial. <br>Encuentra pequeñas cosas que dicen mucho.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#catalogo" (click)="navigate($event)">Explorar la colección <svg class="icon"><use href="#i-diagonal"/></svg></a>
+          <a class="hero-secondary" href="#categorias">Cinco formas de descubrir <span>↓</span></a>
+        </div>
+        <p class="hero-signature">Elegido por ti. <em>Con cariño, Cris Angela.</em></p>
+      </div>
+      <div class="hero-gallery">
+        <div class="hero-main-shot">
+          <span class="shot-kicker">EL ARTE DE REGALAR</span>
+          <span class="shot-word" aria-hidden="true">hello,<br><em>happiness.</em></span>
+          <div class="shot-orbit" aria-hidden="true"></div>
+          <img src="assets/p07.webp" alt="Colección de peluches Capybaras del catálogo" width="1050" height="517" fetchpriority="high">
+          <button class="shot-link" type="button" (click)="showProduct('p07')" [disabled]="!catalog()">
+            <span><small>PARA LLEVAR CONTIGO</small><strong>Peluches Capybaras</strong></span>
+            <span class="round-arrow"><svg class="icon"><use href="#i-diagonal"/></svg></span>
+          </button>
+        </div>
+        <div class="hero-small-shot">
+          <span class="small-shot-number">02 / CONTENEDORES</span>
+          <img src="assets/c04.webp" alt="Tomatodo Cute Baby" width="525" height="475" decoding="async">
+          <button type="button" (click)="showProduct('c04')" [disabled]="!catalog()">Cute Baby <svg class="icon"><use href="#i-diagonal"/></svg></button>
+        </div>
+        <div class="hero-seal" aria-hidden="true"><svg class="icon"><use href="#i-spark"/></svg><span>pequeños detalles<br>grandes emociones</span></div>
+      </div>
+    </section>
+    <div class="editorial-strip" aria-label="Colecciones de la tienda">
+      <span>Para tu día a día</span><svg class="icon"><use href="#i-spark"/></svg>
+      <span>Para regalar</span><svg class="icon"><use href="#i-spark"/></svg>
+      <span>Para hacerlo tuyo</span><svg class="icon"><use href="#i-spark"/></svg>
+      <span>Siempre con estilo</span>
+    </div>
+
+    <section storeReveal class="section collections-section" id="categorias" aria-labelledby="categorias-titulo">
+      <div class="section-heading">
+        <div><p class="eyebrow"><span></span> LAS COLECCIONES</p><h2 id="categorias-titulo">Un universo de pequeños favoritos</h2></div>
+        <a class="text-link" href="#catalogo" (click)="navigate($event)">Ver todo el catálogo <svg class="icon"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="category-grid" [attr.aria-busy]="loading()">
+        @for (item of catalog()?.categorias; track item.id; let i = $index) {
+          <a [class]="'category-card ' + item.tema" [href]="categoryLink(item.id)" (click)="navigate($event, item.id)">
+            <span class="category-index">{{ (i + 1).toString().padStart(2, '0') }}</span>
+            <span class="category-photo"><img [src]="item.foto" alt="" width="240" height="240" loading="lazy" decoding="async"></span>
+            <strong>{{ item.nombre }}</strong><small>{{ item.texto }}</small>
+            <span class="round-arrow"><svg class="icon"><use href="#i-diagonal"/></svg></span>
+          </a>
+        }
+        @if (loading()) {
+          @for (placeholder of [1,2,3,4,5]; track placeholder) { <div class="category-skeleton skeleton" aria-hidden="true"></div> }
+        }
+      </div>
+    </section>
+
+    @if (featured().length || loading()) {
+      <section storeReveal class="section curated-section" aria-labelledby="destacados-titulo">
+        <div class="section-heading">
+          <div><p class="eyebrow"><span></span> SELECCIÓN DE LA TIENDA</p><h2 id="destacados-titulo">Una selección para enamorarte</h2></div>
+          <a class="text-link" href="#catalogo" (click)="navigate($event)">Explorar productos <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="product-grid" id="destacados">
+          @if (loading()) {
+            @for (placeholder of [1,2,3,4]; track placeholder) { <div class="product-skeleton skeleton" aria-hidden="true"></div> }
+          }
+          @for (item of featured(); track item.id) {
+            <store-product-card [product]="item" [category]="categoriesById().get(item.categoria)" (detail)="detail.emit($event)" (add)="add.emit($event)" />
+          }
+        </div>
+      </section>
+    }
+
+    <section storeReveal class="feature" aria-labelledby="feature-titulo">
+      <div class="feature-copy">
+        <p class="eyebrow"><svg class="icon"><use href="#i-spark"/></svg> COLECCIÓN PELUCHES</p>
+        <h2 id="feature-titulo">Hay regalos que<br><em>se sienten.</em></h2>
+        <p class="feature-description">Suaves, entrañables y llenos de personalidad.<br>Conoce a tu próximo compañero favorito.</p>
+        <a class="button secondary" href="#catalogo/peluches" (click)="navigate($event, 'peluches')">Ver peluches <svg class="icon"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="feature-art"><span class="feature-outline" aria-hidden="true">con cariño.</span><img src="assets/p05.webp" alt="Michis Disfrazados, Kuromi y Stitch" width="780" height="529" loading="lazy"><span class="feature-caption">MICHIS DISFRAZADOS · COLECCIÓN PELUCHES</span></div>
+    </section>
+
+
+<section class="catalog-invitation" storeReveal>
+  <div><p class="eyebrow"><span></span> SIGUE DESCUBRIENDO</p><h2>Tu próximo favorito<br><em>está por aquí.</em></h2><p>Explora por colección, encuentra tu precio y elige a tu ritmo.</p></div>
+  <a class="button primary" href="#catalogo" (click)="navigate($event)">Entrar al catálogo <svg class="icon"><use href="#i-arrow"/></svg></a>
+</section>
+@if (loadError()) {
+  <div class="empty" role="alert"><h3>No pudimos cargar los destacados</h3><button class="button secondary" (click)="retry.emit()">Volver a intentar</button></div>
+}

@@ -1,0 +1,78 @@
+<store-icons />
+<a class="skip-link" href="#contenido" (click)="scrollToContent($event)">Saltar al contenido</a>
+<header class="header">
+  <div class="header-main wrap">
+    <a class="brand" href="#" (click)="goHome($event)" aria-label="Cris Angela Importaciones, inicio"><img src="assets/logo.webp" alt="Cris Angela Importaciones" width="143" height="66"></a>
+    <form class="search" role="search" (submit)="submitSearch($event)">
+      <button type="submit" aria-label="Buscar"><svg class="icon"><use href="#i-search"/></svg></button>
+      <input #searchField type="search" name="q" id="buscar" placeholder="Busca lo que te gusta…" aria-label="Buscar productos por nombre"
+        autocomplete="off" maxlength="120" [value]="searchDraft()" (input)="updateSearch(searchField.value)">
+    </form>
+    <div class="header-actions">
+      @if (catalog(); as data) {
+        <a class="whatsapp-link button" [href]="data.tienda.whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contactar a Cris Angela Importaciones por WhatsApp"><svg class="icon"><use href="#i-whatsapp"/></svg><span>WhatsApp</span></a>
+      }
+      <button type="button" class="cart-toggle" id="abrir-carrito" [attr.aria-label]="'Abrir carrito, ' + cart.count() + ' productos'"
+        (click)="cartOpen.set(true)"><svg class="icon"><use href="#i-bag"/></svg><span class="cart-count">{{ cart.count() }}</span></button>
+    </div>
+  </div>
+  <nav class="navigation" aria-label="Categorías">
+    <div class="wrap nav-items">
+      <a href="#" (click)="goHome($event)" [attr.aria-current]="view() === 'home' ? 'page' : null">Inicio</a>
+      <a href="#catalogo" (click)="navigate($event)" [attr.aria-current]="view() === 'catalog' && query().category === '' ? 'page' : null"><svg class="icon"><use href="#i-grid"/></svg> Catálogo</a>
+      @for (item of catalog()?.categorias; track item.id) {
+        <a [href]="categoryLink(item.id)" (click)="navigate($event, item.id)" [attr.aria-current]="view() === 'catalog' && query().category === item.id ? 'page' : null">{{ item.nombre }}</a>
+      }
+    </div>
+  </nav>
+</header>
+
+<main id="contenido" tabindex="-1">
+  <div class="wrap">
+    @if (view() === 'home') {
+      <store-home-page [catalog]="catalog()" [loading]="loading()" [loadError]="loadError()"
+        (browse)="openCatalog($event)" (detail)="selected.set($event)" (add)="addOrChoose($event)" (retry)="load()" />
+    } @else {
+      <store-catalog-page [categories]="catalog()?.categorias ?? []" [query]="query()" [result]="result()"
+        [loading]="productsLoading()" [error]="productsError()" (changed)="changeQuery($event)"
+        (detail)="selected.set($event)" (add)="addOrChoose($event)" (retry)="loadProducts()" />
+    }
+
+    <section storeReveal class="benefits" aria-label="Cómo funciona la tienda">
+      <div><span class="benefit-icon"><svg class="icon"><use href="#i-camera"/></svg></span><div><h3>Fotos del catálogo</h3><p>Mira los productos y sus detalles.</p></div></div>
+      <div><span class="benefit-icon"><svg class="icon"><use href="#i-grid"/></svg></span><div><h3>Cinco colecciones</h3><p>Descubre tus favoritos y compara precios.</p></div></div>
+      <div><span class="benefit-icon"><svg class="icon"><use href="#i-whatsapp"/></svg></span><div><h3>Atención por WhatsApp</h3><p>Coordina tu pedido con la tienda.</p></div></div>
+    </section>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-statement">Cosas que te gustan.<br><em>Detalles que se quedan.</em><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg></div>
+    <div class="footer-main">
+      <div class="footer-brand"><a class="brand" href="#" (click)="goHome($event)" aria-label="Volver al inicio"><img src="assets/logo.webp" alt="Cris Angela Importaciones" width="143" height="66" loading="lazy"></a><p>Audífonos, contenedores, relojes, joyas y peluches para ti y para regalar.</p></div>
+      <div><h2>Colecciones</h2><div class="footer-categories">
+        @for (item of catalog()?.categorias; track item.id) {
+          <a [href]="categoryLink(item.id)" (click)="navigate($event, item.id)">{{ item.nombre }}</a>
+        }
+      </div></div>
+      <div><h2>Contacto</h2><p>Consultas y pedidos por WhatsApp.</p>
+        @if (catalog(); as data) {
+          <a class="button whatsapp-link" [href]="data.tienda.whatsapp" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-whatsapp"/></svg>{{ data.tienda.telefono }}</a>
+        }
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© {{ year }} Cris Angela Importaciones. Todos los derechos reservados.</p><a href="#contenido" (click)="scrollToContent($event)">Volver arriba ↑</a></div>
+  </div>
+</footer>
+
+@if (selected(); as product) {
+  <store-product-detail [product]="product" [category]="categoriesById().get(product.categoria)"
+    (closed)="selected.set(null)" (add)="add($event.product, $event.choices)" />
+}
+@if (cartOpen()) {
+  <store-cart-dialog (closed)="cartOpen.set(false)" (explore)="openCatalog()" />
+}
+<div class="toast" [class.visible]="toast()" role="status" aria-live="polite">
+  @if (toast()) { <svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>{{ toast() }}</span> }
+</div>

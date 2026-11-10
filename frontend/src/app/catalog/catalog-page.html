@@ -1,0 +1,47 @@
+<section class="catalog-section catalog-view" id="catalogo" aria-labelledby="catalogo-titulo">
+  <nav class="breadcrumbs" aria-label="Ruta de navegación"><a href="#">Inicio</a><span aria-hidden="true">/</span><span>Catálogo</span></nav>
+  <div class="catalog-intro">
+    <div><p class="eyebrow"><span></span> A TU RITMO, A TU ESTILO</p><h1 id="catalogo-titulo" tabindex="-1">{{ title() }}</h1>
+      <p>Encuentra ese detalle que va contigo. Explora, compara y elige tus favoritos.</p></div>
+    <span class="catalog-monogram" aria-hidden="true">C<span>A.</span></span>
+  </div>
+  <div class="filter-bar" aria-label="Filtros del catálogo">
+    <label>Categoría<span class="select-wrap"><select #categorySelect id="filtro-categoria" [value]="query().category" (change)="filter({category: categorySelect.value})">
+      <option value="" [selected]="query().category === ''">Todas las categorías</option>
+      @for (item of categories(); track item.id) { <option [value]="item.id" [selected]="query().category === item.id">{{ item.nombre }}</option> }
+    </select><svg class="icon"><use href="#i-chevron"/></svg></span></label>
+    <label>Precio<span class="select-wrap"><select #priceSelect id="filtro-precio" [value]="query().range" (change)="filter({range: priceSelect.value})">
+      <option value="">Cualquier precio</option><option value="0:1200">Hasta S/ 12.00</option><option value="1201:1800">S/ 12.01 a S/ 18.00</option><option value="1801:2500">S/ 18.01 a S/ 25.00</option><option value="2501:">Más de S/ 25.00</option>
+    </select><svg class="icon"><use href="#i-chevron"/></svg></span></label>
+    <label>Ordenar por<span class="select-wrap"><select #sortSelect id="orden" [value]="query().sort" (change)="filter({sort: sortSelect.value})">
+      <option value="">Orden del catálogo</option><option value="asc">Menor precio</option><option value="desc">Mayor precio</option>
+    </select><svg class="icon"><use href="#i-chevron"/></svg></span></label>
+    @if (query().category || query().search || query().range || query().sort) { <button class="quiet-button" type="button" (click)="clear()">Limpiar filtros</button> }
+  </div>
+  <div [attr.aria-busy]="loading()">
+    @if (loading()) {
+      <p class="results" role="status">Buscando tus favoritos…</p>
+      <div class="product-grid" aria-hidden="true">@for (item of [1,2,3,4,5,6,7,8]; track item) { <div class="product-skeleton skeleton"></div> }</div>
+    } @else if (error()) {
+      <div class="empty" role="alert"><h2>No pudimos cargar los productos</h2><p>Intenta nuevamente en unos segundos.</p><button class="button secondary" (click)="retry.emit()">Volver a intentar</button></div>
+    } @else if (result(); as data) {
+      <div class="results-row"><p class="results" role="status">@if (data.total) { Mostrando {{ data.desde }}–{{ data.hasta }} de {{ data.total }} productos } @else { No hay resultados } @if (query().search) { para «{{ query().search }}» }</p><span class="page-indicator">Página {{ data.pagina }} de {{ data.paginas }}</span></div>
+      <div class="product-grid" id="productos">
+        @for (item of data.productos; track item.id) { <store-product-card [product]="item" [category]="categoriesById().get(item.categoria)" (detail)="detail.emit($event)" (add)="add.emit($event)" /> }
+      </div>
+      @if (!data.total) {
+        <div class="empty"><svg class="icon"><use href="#i-search"/></svg><h2>No encontramos productos</h2><p>Prueba otro nombre o cambia los filtros.</p><button class="button secondary" (click)="clear()">Ver todos los productos</button></div>
+      }
+      @if (data.paginas > 1) {
+        <nav class="pagination" aria-label="Páginas del catálogo">
+          <button type="button" class="page-direction" [disabled]="data.pagina === 1" (click)="changed.emit({page: data.pagina - 1})" aria-label="Página anterior">← <span>Anterior</span></button>
+          <div class="page-numbers">@for (page of pages(); track page) {
+            @if (isPage(page)) { <button type="button" [attr.aria-current]="page === data.pagina ? 'page' : null" [attr.aria-label]="'Página ' + page" (click)="changed.emit({page: pageNumber(page)})">{{ page }}</button> }
+            @else { <span aria-hidden="true">…</span> }
+          }</div>
+          <button type="button" class="page-direction" [disabled]="data.pagina === data.paginas" (click)="changed.emit({page: data.pagina + 1})" aria-label="Página siguiente"><span>Siguiente</span> →</button>
+        </nav>
+      }
+    }
+  </div>
+</section>

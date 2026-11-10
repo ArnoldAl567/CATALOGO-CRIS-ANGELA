@@ -1,0 +1,13 @@
+/.openai/
+/.vercel/
+/dist/
+**/.env
+**/.env.*
+!**/.env.example
+frontend/node_modules/
+frontend/.angular/
+frontend/dist/
+frontend/out-tsc/
+frontend/.test-build/
+backend/vendor/
+backend/.phpunit.cache/

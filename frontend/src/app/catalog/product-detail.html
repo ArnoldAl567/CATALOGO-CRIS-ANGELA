@@ -1,0 +1,51 @@
+@let item = product();
+<dialog #dialog class="detail-dialog" aria-labelledby="detalle-titulo"
+  (click)="closeOnBackdrop($event, dialog)" (close)="closed.emit()">
+  <div class="detail-layout">
+    <div [class]="'detail-gallery ' + (category()?.tema ?? '')">
+      <button type="button" class="detail-photo" [class.zoomed]="zoomed()" (click)="zoomed.set(!zoomed())"
+        [attr.aria-pressed]="zoomed()" [attr.aria-label]="zoomed() ? 'Reducir imagen' : 'Ampliar imagen'">
+        <img [src]="item.fotos[photo()]" [alt]="item.nombre">
+        <span class="zoom-hint">{{ zoomed() ? '− Reducir' : '+ Ampliar imagen' }}</span>
+      </button>
+      @if (item.fotos.length > 1) {
+        <div class="thumbs" aria-label="Galería de fotos">
+          @for (url of item.fotos; track url; let i = $index) {
+            <button type="button" [attr.aria-pressed]="i === photo()" [attr.aria-label]="'Ver foto ' + (i + 1)" (click)="photo.set(i); zoomed.set(false)">
+              <img [src]="url" alt="">
+            </button>
+          }
+        </div>
+      }
+    </div>
+    <div class="detail-copy">
+      <div class="detail-top">
+        <p class="eyebrow"><span></span>{{ category()?.nombre?.toUpperCase() }}</p>
+        <button type="button" class="icon-button" (click)="dialog.close()" aria-label="Cerrar detalle" autofocus><svg class="icon"><use href="#i-close"/></svg></button>
+      </div>
+      <h2 id="detalle-titulo">{{ item.nombre }}</h2>
+      <p class="price">{{ price(item.precio) }} @if (item.porUnidad) { <small>c/u</small> }</p>
+      <p class="detail-description">{{ item.descripcion }}</p>
+      <ul class="specs">
+        @for (feature of item.caracteristicas; track feature) { <li>{{ feature }}</li> }
+      </ul>
+      <form (submit)="submit($event)">
+        @for (group of item.opciones; track group.nombre; let i = $index) {
+          <label>{{ group.nombre }}
+            <span class="select-wrap">
+              <select [name]="'variante-' + i" required>
+                @if (group.valores.length > 1) { <option value="" selected>Selecciona una opción</option> }
+                @for (value of group.valores; track value) { <option [value]="value">{{ value }}</option> }
+              </select>
+              <svg class="icon"><use href="#i-chevron"/></svg>
+            </span>
+          </label>
+        }
+        @if (item.opciones.length > 1) {
+          <p class="variant-note">Confirma la combinación de capacidad y color con la tienda por WhatsApp.</p>
+        }
+        <button class="button primary" type="submit"><svg class="icon"><use href="#i-bag"/></svg> Agregar al carrito</button>
+      </form>
+    </div>
+  </div>
+</dialog>

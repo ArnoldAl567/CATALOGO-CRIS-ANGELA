@@ -1,0 +1,17 @@
+@let item = product();
+<button type="button" [class]="'product-photo ' + (category()?.tema ?? '')" (click)="detail.emit(item)" [attr.aria-label]="'Ver detalles de ' + item.nombre">
+  <img [src]="item.fotos[0]" alt="" width="290" height="220" loading="lazy" decoding="async">
+  <span class="photo-caption">Descubrir <svg class="icon" aria-hidden="true"><use href="#i-diagonal"/></svg></span>
+</button>
+<div class="product-info">
+  <p class="product-category">{{ category()?.nombre }}</p>
+  <h3><button type="button" (click)="detail.emit(item)">{{ item.nombre }}</button></h3>
+  <div class="product-bottom">
+    <p class="price">{{ price(item.precio) }} @if (item.porUnidad) { <small>c/u</small> }</p>
+    <button type="button" class="add-button" (click)="add.emit(item)"
+      [attr.aria-label]="(item.opciones.length ? 'Elegir variante de ' : 'Agregar al carrito: ') + item.nombre">
+      <svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>
+      {{ item.opciones.length ? 'Elegir' : 'Agregar' }}
+    </button>
+  </div>
+</div>
