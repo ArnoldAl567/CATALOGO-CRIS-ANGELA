@@ -59,11 +59,11 @@ Si esta copia ya tiene la instancia local del catálogo en `backend/.postgres/`,
 
 ## Despliegue en Vercel
 
-Para el frontend, importa el repositorio con `frontend` como directorio raíz, Angular como preset, `npm run build` como comando de compilación y `dist/tienda/browser` como directorio de salida.
+El proyecto de Vercel usa la raíz del repositorio y el preset **Container**. El `Dockerfile` compila Angular y copia `dist/tienda/browser` al directorio público de Laravel. Apache sirve la tienda y las rutas `/api` desde el mismo dominio.
 
-El frontend consulta `/api` en su propio dominio. Publica Laravel en un entorno compatible con PHP, con su directorio `backend/public` como raíz pública, y configura una regla de Vercel que reenvíe `/api/:path*` a `https://<dominio-de-laravel>/api/:path*`. En Laravel, configura `APP_ENV=production`, `APP_DEBUG=false`, `APP_KEY` y la conexión a PostgreSQL mediante variables del entorno de producción. En una base nueva, aplica las migraciones y carga el catálogo inicial con `php artisan migrate --seed --force`.
+Configura `APP_KEY` como secreto y conecta PostgreSQL mediante `DATABASE_URL`, que la integración de Neon proporciona a Vercel. Laravel también acepta `DB_URL` para configuraciones existentes. En una base nueva, ejecuta `php artisan migrate --seed --force` desde `backend` con la conexión de producción confirmada. La compilación y el arranque del contenedor no escriben en la base.
 
-[Configuración de compilación](https://vercel.com/docs/builds/configure-a-build) · [Reenvío de solicitudes a Laravel](https://vercel.com/docs/routing/rewrites)
+[Runtime de contenedores de Vercel](https://vercel.com/docs/functions/runtimes/container)
 
 ## Datos del PDF
 

@@ -1,0 +1,17 @@
+.git
+.openai
+.vercel
+dist
+frontend/.angular
+frontend/.test-build
+frontend/node_modules
+frontend/dist
+frontend/out-tsc
+backend/.postgres
+backend/.phpunit.cache
+backend/vendor
+backend/storage/logs/*
+backend/bootstrap/cache/*.php
+**/.env*
+**/auth.json
+**/*.key
