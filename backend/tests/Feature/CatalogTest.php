@@ -17,6 +17,7 @@ class CatalogTest extends TestCase
 
         $this->getJson('/api/catalogo')
             ->assertOk()
+            ->assertHeaderContains('Cache-Control', 's-maxage=60')
             ->assertJsonCount(5, 'categorias')
             ->assertJsonCount(5, 'productos')
             ->assertJsonCount(4, 'destacados');
@@ -29,6 +30,7 @@ class CatalogTest extends TestCase
         $ids = [];
         foreach ([1 => 12, 2 => 12, 3 => 12, 4 => 11] as $page => $count) {
             $response = $this->getJson('/api/productos?page='.$page)->assertOk()
+                ->assertHeaderContains('Cache-Control', 's-maxage=60')
                 ->assertJsonCount($count, 'productos')->assertJsonPath('total', 47)
                 ->assertJsonPath('pagina', $page)->assertJsonPath('paginas', 4);
             $ids = array_merge($ids, array_column($response->json('productos'), 'id'));
@@ -85,7 +87,7 @@ class CatalogTest extends TestCase
             'cliente' => 'Cliente de prueba',
             'notas' => 'Una nota',
             'items' => [['id' => 'p07', 'choices' => ['Lady capybara'], 'quantity' => 2]],
-        ])->assertOk()->assertJsonPath('total', 2460);
+        ])->assertOk()->assertHeaderContains('Cache-Control', 'private')->assertJsonPath('total', 2460);
 
         parse_str(parse_url($response->json('whatsapp'), PHP_URL_QUERY), $query);
         $this->assertStringContainsString('Modelo: Lady capybara', $query['text']);

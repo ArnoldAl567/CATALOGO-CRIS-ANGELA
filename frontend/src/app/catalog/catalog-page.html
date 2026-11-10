@@ -27,7 +27,7 @@
     } @else if (result(); as data) {
       <div class="results-row"><p class="results" role="status">@if (data.total) { Mostrando {{ data.desde }}–{{ data.hasta }} de {{ data.total }} productos } @else { No hay resultados } @if (query().search) { para «{{ query().search }}» }</p><span class="page-indicator">Página {{ data.pagina }} de {{ data.paginas }}</span></div>
       <div class="product-grid" id="productos">
-        @for (item of data.productos; track item.id) { <store-product-card [product]="item" [category]="categoriesById().get(item.categoria)" (detail)="detail.emit($event)" (add)="add.emit($event)" /> }
+        @for (item of data.productos; track item.id) { <store-product-card [product]="item" [category]="categoriesById().get(item.categoria)" [aboveFold]="$index < 4" (detail)="detail.emit($event)" (add)="add.emit($event)" /> }
       </div>
       @if (!data.total) {
         <div class="empty"><svg class="icon"><use href="#i-search"/></svg><h2>No encontramos productos</h2><p>Prueba otro nombre o cambia los filtros.</p><button class="button secondary" (click)="clear()">Ver todos los productos</button></div>

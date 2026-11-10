@@ -31,6 +31,6 @@ class CatalogController extends Controller
             ])->values(),
             'productos' => ProductResource::collection($products)->resolve($request),
             'destacados' => $featured->pluck('id')->values(),
-        ]);
+        ])->header('Cache-Control', 'public, max-age=15, s-maxage=60, stale-while-revalidate=60');
     }
 }

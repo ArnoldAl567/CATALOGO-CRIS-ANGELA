@@ -25,5 +25,6 @@ RUN composer dump-autoload --no-dev --optimize --no-interaction \
     && chown -R www-data:www-data storage bootstrap/cache
 COPY --from=frontend-build /build/dist/tienda/browser/ public/
 COPY deploy/apache.conf /etc/apache2/sites-available/000-default.conf
+RUN a2enmod headers && apache2ctl configtest
 
 EXPOSE 80

@@ -48,7 +48,7 @@ class ProductController extends Controller
             'total' => $page->total(), 'pagina' => $page->currentPage(),
             'paginas' => $page->lastPage(), 'porPagina' => $page->perPage(),
             'desde' => $page->firstItem(), 'hasta' => $page->lastItem(),
-        ]);
+        ])->header('Cache-Control', 'public, max-age=15, s-maxage=60, stale-while-revalidate=60');
     }
 
     public function selection(Request $request): JsonResponse

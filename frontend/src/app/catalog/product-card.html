@@ -1,6 +1,6 @@
 @let item = product();
 <button type="button" [class]="'product-photo ' + (category()?.tema ?? '')" (click)="detail.emit(item)" [attr.aria-label]="'Ver detalles de ' + item.nombre">
-  <img [src]="item.fotos[0]" alt="" width="290" height="220" loading="lazy" decoding="async">
+  <img [attr.loading]="aboveFold() ? 'eager' : 'lazy'" [src]="item.fotos[0]" alt="" width="290" height="220" decoding="async">
   <span class="photo-caption">Descubrir <svg class="icon" aria-hidden="true"><use href="#i-diagonal"/></svg></span>
 </button>
 <div class="product-info">
